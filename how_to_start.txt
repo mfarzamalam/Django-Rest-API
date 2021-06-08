@@ -1,0 +1,13 @@
+###### Enter below command one by one in your commandline
+
+1) mkdir folderName
+2) cd folderName
+3) virtualenv env
+4) source env/bin/activate
+5) pip install django
+6) pip install djangorestframework
+7) pip install markdown
+8) pip install django-filter
+9) pip freeze > requirement.txt
+10) django-admin startproject folderName .    # Period is important in the end so it doesnot create a folder
+11) python3 manage.py startapp appName
