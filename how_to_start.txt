@@ -8,6 +8,7 @@
 6) pip install djangorestframework
 7) pip install markdown
 8) pip install django-filter
-9) pip freeze > requirement.txt
-10) django-admin startproject folderName .    # Period is important in the end so it doesnot create a folder
-11) python3 manage.py startapp appName
+9) pip install requests
+10) pip freeze > requirement.txt
+11) django-admin startproject folderName .    # Period is important in the end so it doesnot create a folder
+12) python3 manage.py startapp appName
