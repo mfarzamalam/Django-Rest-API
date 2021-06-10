@@ -7,7 +7,7 @@ def post_data():
     data = {
         'name':'Farzam',
         'city':'krachi',
-        'age':21,
+        'age':25,
     }
 
     json_data = json.dumps(data)
