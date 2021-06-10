@@ -4,9 +4,10 @@ import io
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from django.views import View
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from .models import Student
 
 
 # Create your views here.
@@ -27,3 +28,14 @@ class StudentApi(View):
         else:
             json_data= JSONRenderer().render(serializer.errors)
             return HttpResponse(json_data, content_type='application/json')
+
+
+def check(request):
+    name = "farzam"
+    database_names = Student.objects.values_list('name', flat=True)
+
+    for names in database_names:
+        if name in names.lower():
+            print("yes")
+
+    return HttpResponseRedirect("h")

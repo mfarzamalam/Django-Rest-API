@@ -5,9 +5,9 @@ URL = "http://127.0.0.1:8000/student/"
 
 def post_data():
     data = {
-        'name':'Farzam',
+        'name':'farzam',
         'city':'krachi',
-        'age':25,
+        'age':26,
     }
 
     json_data = json.dumps(data)
