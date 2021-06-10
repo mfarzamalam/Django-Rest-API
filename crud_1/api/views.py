@@ -4,7 +4,7 @@ import io
 from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
 from .models import Student
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
@@ -70,3 +70,23 @@ def student_api(request):
         else:
             json_data = JSONRenderer().render(serializer.errors)
             return HttpResponse(json_data, content_type='application/json')
+
+
+    if request.method == "DELETE":
+        json_data   = request.body
+        bytes_data  = io.BytesIO(json_data)
+        python_data = JSONParser().parse(bytes_data)
+        id          = python_data.get('id')
+        try:
+            student   = Student.objects.get(id=id)
+            student.delete()
+            response  = {'msg':'The data is Deleted'}
+        except:
+            response  = {'msg':'The data is not available to delete'}
+        
+            ### This 
+        # json_data = JSONRenderer().render(response)
+        # return HttpResponse(json_data, content_type='application/json')
+            
+            ### Or
+        return JsonResponse(response, safe=False)
