@@ -3,4 +3,6 @@ from .models import Student
 
 # Register your models here.
 
-admin.site.register(Student)
+@admin.register(Student)
+class StudentAdmin(admin.ModelAdmin):
+    list_display = ['id','name','age','city']

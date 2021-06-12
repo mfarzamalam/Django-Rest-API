@@ -19,8 +19,9 @@ def get_student(id=None):
 
 def post_student():
     data = {
+        'id':40,
         'name':'another',
-        'age': 26,
+        'age': 22,
         'city':'La-whore'
     }
 

@@ -13,14 +13,21 @@ from .models      import Student
 @method_decorator(csrf_exempt, name='dispatch')
 class StudentApi(View):
     def post(self, request, *args, **kwargs):
+        seats = Student.objects.all()
+        total = seats.count()
+        print(total)
         json_data   = request.body
         bytes_data  = io.BytesIO(json_data)
         python_data = JSONParser().parse(bytes_data)
         serializer  = StudentModelSerializer(data=python_data)
 
         if serializer.is_valid():
-            serializer.save()
-            response  = {'msg':'Data Created Successfully'}
+            try:
+                serializer.save()
+                response  = {'msg':'Data Created Successfully'}
+            except:
+                response  = {'msg':'Some fields are restricted. you cannot insert more data'}
+
             json_response = JSONRenderer().render(response)
             return HttpResponse(json_response, content_type='application/json')
         else:
