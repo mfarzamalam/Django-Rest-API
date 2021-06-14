@@ -32,10 +32,10 @@ from .serializers import StudentSerializer
 #         return Response({'msg':'This is from POST'})
 
 
-@api_view(['GET', 'POST', 'PUT', 'DELETE'])
-def student_api(request):
+@api_view(['GET', 'POST', 'PUT', 'PATCH' , 'DELETE'])
+def student_api(request, pk=None):
     if request.method == "GET":
-        id = request.data.get('id', None)
+        id = pk
         if id is not None:
             student = Student.objects.get(id=id)
             serializer = StudentSerializer(student)
@@ -59,28 +59,41 @@ def student_api(request):
 
 
     if request.method == "PUT":
-        id = request.data.get('id')
+        id = pk
         name = request.data.get('name')
         roll = request.data.get('roll')
         city = request.data.get('city')
         
         student = Student.objects.get(pk=id)
-
-        if name == None or roll == None or city == None:
-            serializer = StudentSerializer(student, data=request.data, partial=True)
-        else:
-            serializer = StudentSerializer(student, data=request.data)
+        serializer = StudentSerializer(student, data=request.data)
 
         if serializer.is_valid():
             serializer.save()
-            response = {'msg':'Data Updated'}
+            response = {'msg':'Complete Data Updated'}
             return Response(response)
         else:
             return Response(serializer.errors)
 
+
+    if request.method == "PATCH":
+        id = pk
+        name = request.data.get('name')
+        roll = request.data.get('roll')
+        city = request.data.get('city')
+        
+        student = Student.objects.get(pk=id)
+        serializer = StudentSerializer(student, data=request.data, partial=True)
+
+        if serializer.is_valid():
+            serializer.save()
+            response = {'msg':'Partial Data Updated'}
+            return Response(response)
+        else:
+            return Response(serializer.errors)
     
+
     if request.method == "DELETE":
-        id = request.data.get('id')
+        id = pk
         try:
             student = Student.objects.get(pk=id)
             student.delete()
