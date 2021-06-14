@@ -9,20 +9,21 @@ def get_data(id=None):
     data = {}
     if id is not None:
         data = {'id':id}
-
-    json_data = json.dumps(data)
-    r = requests.get(url = URL, data=json_data)
+    
+    headers = {'content-Type':'application/json'}
+    json_data= json.dumps(data )
+    r = requests.get(url = URL, data=json_data, headers=headers)
     data = r.json()
-    print(data)
+    print(data )
 
-get_data()
+# get_data(2)
 
 
 def post_data():
     data = {
-        'name':'Name',
-        'city':'City',
-        'desc':'Desc',
+        'name':'Api_Name',
+        'roll':255,
+        'city':'Api_City',
     }
     headers = {'content-Type':'application/json'}
 
@@ -31,31 +32,34 @@ def post_data():
     data = r.json()
     print(data)
 
-post_data()
+# post_data()
 
 
-def update_data():
+def update_data(id):
     data = {
-        'id'  :4,
-        'name':'UpdatedName',
-        'city':'UpdatedCity',
-        # 'desc':'UpdatedDesc',
+        'id'  :id,
+        'name':'Api_Name',
+        'roll':255,
+        # 'city':'Api_City',
     }
+    headers = {'content-Type':'application/json'}
 
     json_data = json.dumps(data)
-    r = requests.put(url=URL, data=json_data)
+    r = requests.put(url=URL, data=json_data, headers=headers)
     data = r.json()
     print(data)
 
-# update_data()
+update_data(1)
 
 
-def delete_data():
-    data = {'id':3 }
+def delete_data(id):
+    headers = {'content-Type':'application/json'}
+
+    data = {'id':id }
 
     json_data = json.dumps(data)
-    r = requests.delete(url=URL, data=json_data)
+    r = requests.delete(url=URL, data=json_data, headers=headers)
     data = r.json()
     print(data)
 
-# delete_data()
+# delete_data(2)
