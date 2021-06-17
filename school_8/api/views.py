@@ -57,3 +57,14 @@ class StudentViewSet(viewsets.ViewSet):
             bogey = Student.objects.get(pk=pk)
             bogey.delete()
             return Response({"msg":"Tango Down"})
+
+
+
+class StudentModelViewSet(viewsets.ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+
+class StudentReadOnlyModelViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
