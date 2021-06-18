@@ -125,3 +125,10 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+""" To define authentication globally if your authentication applies to more than one class """
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':['rest_framework.authentication.BasicAuthentication'],
+    'DEFAULT_PERMISSION_CLASSES':['rest_framework.permissions.IsAuthenticated'],
+}
