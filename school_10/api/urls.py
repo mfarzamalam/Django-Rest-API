@@ -11,5 +11,5 @@ router.register('studentApi', StudentApi, basename='studentapi')
 urlpatterns = [
     path('',include(router.urls)),
     path('auth/',include('rest_framework.urls', namespace='restframework')),
-    path('token/',CustomAuthToken.as_view())
+    # path('token/',CustomAuthToken.as_view())
 ]

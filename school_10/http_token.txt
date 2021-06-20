@@ -1,0 +1,8 @@
+# How to create token ###
+1) python3 manage.py drf_create_token username
+2) http POST http://127.0.0.1:8000/token/ username="a" password="a"
+3) http http://127.0.0.1:8000/studentApi/
+4) http http://127.0.0.1:8000/studentApi/ 'Authorization:Token 6ec39c36927f44a2493727a1ef80ede3f30e76f8'
+5) http -f POST http://127.0.0.1:8000/studentApi/ name='alex' city='california' 'Authorization:Token 6ec39c36927f44a2493727a1ef80ede3f30e76f8'
+6) http PUT http://127.0.0.1:8000/studentApi/8/ name='alex' city='newyork' 'Authorization:Token 6ec39c36927f44a2493727a1ef80ede3f30e76f8'
+7) http DELETE http://127.0.0.1:8000/studentApi/8/ 'Authorization:Token 6ec39c36927f44a2493727a1ef80ede3f30e76f8'
