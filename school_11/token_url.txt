@@ -1,0 +1,4 @@
+http POST http://127.0.0.1:8000/gettoken/ username='a' password='a'
+http POST http://127.0.0.1:8000/verifytoken/ token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI0MjI5MzExLCJqdGkiOiI2ZjRmNjRjZThjY2I0OTM4YjFhMmU3ZDg3Y2ZkMjE1YSIsInVzZXJfaWQiOjF9.xapI0BdSO3nlIxTGjiSnhxjN_8VG1lnFc-cDkXzMbWU"
+http POST http://127.0.0.1:8000/refreshtoken/ refresh="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyNDMxMzEyMCwianRpIjoiN2FiNDFiZGJkMmQxNGFjMzllZDdlZTEzOTg5NzBhYTQiLCJ1c2VyX2lkIjoxfQ.NwhfWThgFPqWiADZO_vheoQvTvaK-aPc2WNQ3DAc8eY"
+http http://127.0.0.1:8000/studentApi/ 'Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyNDMxNTQxMSwianRpIjoiMGEzZDZhYjYyYzIzNDdjMzkwNTBiOTJiOGQ5ZDNkYTYiLCJ1c2VyX2lkIjoxfQ.LkGs8y0bAngVdOYZSdrc8Z227DdbJ50TfUk__6PVuo4'
