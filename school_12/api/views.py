@@ -3,7 +3,8 @@ from .models import Student
 from .serializers import StudentSerializer
 from rest_framework.generics import ListAPIView
 from django_filters.rest_framework.backends import DjangoFilterBackend
-from rest_framework.filters import SearchFilter
+from rest_framework.filters import SearchFilter, OrderingFilter
+
 
 # Create your views here.
 # class StudentApi(ListAPIView):    
@@ -24,7 +25,11 @@ from rest_framework.filters import SearchFilter
 class StudentApi(ListAPIView): 
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
-    filter_backends  = [SearchFilter]
+    # filter_backends  = [SearchFilter]
     # search_fields    = ['city','name','faculty_name','id']
     # search_fields    = ['^name']  # starts with
-    search_fields    = ['=name']  # exact match
+    # search_fields    = ['=name']  # exact match
+
+
+    filter_backends  = [OrderingFilter]
+    ordering_fields  = ['name']
