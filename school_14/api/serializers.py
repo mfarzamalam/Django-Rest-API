@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Singer, Song
+from .models import Singer, Song, Student
 
 
 class SingerSerializer(serializers.ModelSerializer):
@@ -16,4 +16,11 @@ class SingerSerializer(serializers.ModelSerializer):
 class SongSerializer(serializers.ModelSerializer):
     class Meta:
         model  = Song
+        fields = "__all__"
+
+
+
+class StudentSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model  = Student
         fields = "__all__"

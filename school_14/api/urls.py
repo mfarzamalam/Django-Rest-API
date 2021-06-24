@@ -1,11 +1,12 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import SingerApi, SongApi
+from .views import SingerApi, SongApi, StudentApi
 
 
 router = DefaultRouter()
 router.register('SongApi', SongApi, basename='song')
 router.register('SingerApi', SingerApi, basename='singer')
+router.register('StudentApi', StudentApi, basename='student')
 
 
 urlpatterns = [
