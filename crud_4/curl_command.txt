@@ -1,0 +1,5 @@
+CREATE:
+    - curl -X POST http://127.0.0.1:8000/api/v1/products/new -d name='from curl' -d price=1.00 -d description='new description from curl'
+
+DELETE:
+    - curl -X DELETE http://127.0.0.1:8000/api/v1/products/12/destroy
